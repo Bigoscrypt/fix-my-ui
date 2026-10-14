@@ -2,7 +2,7 @@
   "name": "fix-my-ui",
   "displayName": "Fix My UI",
   "version": "1.0.0",
-  "description": "Audit and fix the UX of an app you already built, and extract a design system from it",
+  "description": "Audit and fix the UX of the app or website you already built, and extract a design system from it",
   "author": { "name": "Bigoscrypt", "url": "https://github.com/Bigoscrypt" },
   "homepage": "https://github.com/Bigoscrypt/fix-my-ui",
   "repository": "https://github.com/Bigoscrypt/fix-my-ui",

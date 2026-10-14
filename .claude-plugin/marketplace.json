@@ -1,6 +1,6 @@
 {
   "name": "fix-my-ui",
-  "description": "Fix My UI by Bigoscrypt: audit and fix the UX of an app you already built",
+  "description": "Fix My UI by Bigoscrypt: audit and fix the UX of the app or website you already built",
   "owner": {
     "name": "Bigoscrypt",
     "url": "https://github.com/Bigoscrypt"
@@ -9,7 +9,7 @@
     {
       "name": "fix-my-ui",
       "source": "./",
-      "description": "Audit and fix the UX of an app you already built, and extract a design system from it"
+      "description": "Audit and fix the UX of the app or website you already built, and extract a design system from it"
     }
   ]
 }

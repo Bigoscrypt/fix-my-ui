@@ -2,9 +2,9 @@
 
 **You built it fast. Now make it feel finished.**
 
-An agent skill by **[Bigoscrypt](https://github.com/Bigoscrypt)** that audits the app you already have and fixes its UX: every screen at phone and desktop widths, every state (loading, empty, error), navigation, sign-up and onboarding, forms, copy, motion and accessibility. Then it pulls a design system out of what you already built, so new pages stop drifting.
+An agent skill by **[Bigoscrypt](https://github.com/Bigoscrypt)** that audits the app or website you already have and fixes its UX: every screen at phone and desktop widths, every state (loading, empty, error), navigation, sign-up and onboarding, forms, copy, motion and accessibility. Then it pulls a design system out of what you already built, so new pages stop drifting.
 
-Not a style generator. It doesn't give you a new aesthetic; it finds what's broken, confusing or untrue in your current app and fixes it in priority order.
+Not a style generator. It doesn't give you a new aesthetic; it finds what's broken, confusing or untrue in your current app or website and fixes it in priority order.
 
 <!-- HERO: before / after GIF + sample audit report go here -->
 
@@ -29,8 +29,8 @@ That one line works in `AGENTS.md` (Codex and most agents), `.cursor/rules/fix-m
 
 ## Use it
 
-- *"Fix my UI"* / *"Audit the UX of this app"*: full audit, ranked findings, fixes in priority order.
-- *"Build a design system for this app"*: tokens, type and spacing scales and component rules, taken from your code.
+- *"Fix my UI"* / *"Audit the UX of this site"*: full audit, ranked findings, fixes in priority order.
+- *"Build a design system for this app or site"*: tokens, type and spacing scales and component rules, taken from your code.
 - *"Design the empty and error states for this page"*, *"Fix our onboarding"*, *"Make this work at 360px"*: one area at a time.
 
 ## What it checks
@@ -54,7 +54,7 @@ It also knows what matters most for each kind of product: landing pages, SaaS da
 
 ```bash
 npm i -D playwright && npx playwright install chromium
-node skills/fix-my-ui/scripts/audit.mjs https://your-app.com https://your-app.com/pricing --out ux-audit
+node skills/fix-my-ui/scripts/audit.mjs https://your-site.com https://your-site.com/pricing --out ux-audit
 ```
 Saves full-page screenshots at 360, 390, 768 and 1280px and a `report.md` that flags sideways scroll, small tap targets, images without alt text, clipped text, unlabelled fields, icon buttons without labels, tiny mobile text and heading problems. It only opens the URLs you give it: no network calls of its own, no keys, no telemetry. It uses your installed Chrome if Playwright's browser isn't downloaded.
 
