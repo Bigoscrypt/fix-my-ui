@@ -12,17 +12,17 @@
   body{margin:0}
   .wrap{max-width:1120px;margin:0 auto;padding:0 var(--space-4)}
   header{position:sticky;top:0;z-index:5;background:transparent;transition:background var(--dur-base)}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
   .logo{font:700 20px var(--font-heading);color:var(--fg);text-decoration:none;display:flex;align-items:center;gap:10px;min-height:44px}
   .logo i{width:28px;height:28px;border-radius:8px;background:var(--primary);display:inline-block}
-  nav.links{display:flex;gap:var(--space-6);align-items:center}
+  nav.links{display:flex;gap:var(--space-8);align-items:center}
   nav.links a{color:var(--fg-muted);text-decoration:none;font-size:var(--text-sm);font-weight:500;display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
-  nav.links a.btn{color:var(--primary-fg);padding:0 var(--space-5)}
+  nav.links a.btn{color:var(--primary-fg);padding:0 var(--space-6);margin-left:var(--space-2)}
   .menu{display:none;min-width:44px;min-height:44px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);color:var(--fg);font:500 var(--text-sm) var(--font-body);padding:0 14px}
   .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--space-6);border-radius:var(--radius-md);font:600 var(--text-base) var(--font-body);text-decoration:none;border:0;cursor:pointer}
   .btn-primary{background:var(--primary);color:var(--primary-fg)}
   .btn-link{color:var(--primary);background:none;padding:0 var(--space-3)}
-  .hero{padding:var(--space-16) 0 var(--space-12)}
+  .hero{padding:112px 0 var(--space-16)}
   .hero h1{font:700 clamp(36px,6vw,56px)/1.08 var(--font-heading);letter-spacing:-.02em;margin:0;max-width:760px;text-wrap:balance}
   .hero p{font-size:var(--text-lg);color:var(--fg-muted);max-width:600px;margin:var(--space-5) 0 var(--space-8);line-height:1.6}
   .cta{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
@@ -47,6 +47,7 @@
   .empty h3{margin:0 0 var(--space-2)}.empty p{color:var(--fg-muted);margin:0 0 var(--space-5)}
   footer{padding:var(--space-10) 0;color:var(--fg-muted);font-size:var(--text-sm)}
   @media (max-width:720px){
+    header .wrap{height:72px}.hero{padding:56px 0 var(--space-10)}
     nav.links a{display:none}.menu{display:inline-flex;align-items:center}
     .steps{grid-template-columns:1fr}
     .row{grid-template-columns:minmax(0,1fr) auto;row-gap:4px}
