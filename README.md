@@ -6,7 +6,9 @@ An agent skill by **[Bigoscrypt](https://github.com/Bigoscrypt)** that audits th
 
 Not a style generator. It doesn't give you a new aesthetic; it finds what's broken, confusing or untrue in your current app or website and fixes it in priority order.
 
-<!-- HERO: before / after GIF + sample audit report go here -->
+![Before and after Fix My UI on a vibecoded invoicing site](assets/before-after.gif)
+
+*A vibecoded landing page and dashboard, before and after one Fix My UI pass. Read the [full audit](examples/billfold/audit.md) (13 findings, ranked) or open the [before](examples/billfold/before/index.html) and [after](examples/billfold/after/index.html) source.*
 
 ## Install
 

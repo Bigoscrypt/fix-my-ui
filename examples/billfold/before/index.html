@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Billfold</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;font-family:Poppins,sans-serif;background:#0f0a1e;color:#fff}
+  nav{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(15,10,30,.95);display:flex;align-items:center;justify-content:space-between;padding:0 40px;z-index:10}
+  .logo{font-weight:800;font-size:22px;background:linear-gradient(90deg,#a855f7,#ec4899);-webkit-background-clip:text;color:transparent}
+  .links a{color:#9ca3af;margin-left:28px;text-decoration:none;font-size:14px}
+  .menu{display:none;font-size:22px;cursor:pointer}
+  .hero{padding:170px 40px 90px;text-align:center;background:radial-gradient(circle at 30% 20%,#7c3aed55,transparent 50%),radial-gradient(circle at 70% 60%,#db277755,transparent 50%)}
+  .hero h1{font-size:64px;font-weight:800;margin:0;line-height:1.1;background:linear-gradient(90deg,#c084fc,#f472b6,#fb923c);-webkit-background-clip:text;color:transparent}
+  .hero p{color:#6b7280;font-size:18px;max-width:640px;margin:22px auto}
+  .btn{display:inline-block;padding:16px 34px;border-radius:999px;font-weight:600;margin:8px;cursor:pointer;border:0;font-family:inherit;font-size:16px}
+  .btn1{background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;box-shadow:0 0 40px #a855f799}
+  .btn2{background:linear-gradient(90deg,#f97316,#ec4899);color:#fff;box-shadow:0 0 40px #f9731699}
+  .stats{display:flex;justify-content:center;gap:60px;margin-top:50px}
+  .stats div{font-size:34px;font-weight:800}.stats span{display:block;font-size:12px;color:#6b7280;font-weight:400}
+  .features{display:flex;gap:24px;padding:60px 40px;width:1100px;margin:0 auto}
+  .card{flex:1;background:#1a1333;border-radius:20px;padding:30px;border-left:4px solid #a855f7}
+  .card h3{margin:10px 0}.card p{color:#6b7280;font-size:14px}
+  .emoji{font-size:34px}
+  .dash{width:1000px;margin:40px auto;background:#1a1333;border-radius:20px;padding:30px}
+  .dash h2{margin-top:0}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  td,th{padding:12px;text-align:left;border-bottom:1px solid #2a2050;color:#9ca3af}
+  .pill{padding:4px 10px;border-radius:999px;font-size:11px}
+  .paid{background:#16a34a}.due{background:#dc2626}.draft{background:#4b5563}
+  .del{cursor:pointer;opacity:.5}
+  .testi{text-align:center;padding:60px 40px;color:#9ca3af;font-style:italic}
+  footer{text-align:center;padding:40px;color:#4b5563;font-size:11px}
+</style>
+</head>
+<body>
+<nav><div class="logo">Billfold</div><div class="links"><a href="#">Features</a><a href="#">Pricing</a><a href="#">About</a><a href="#">Login</a></div><div class="menu">☰</div></nav>
+<section class="hero">
+  <h1>Supercharge Your Invoicing Workflow 🚀</h1>
+  <p>Billfold is the next-generation, AI-powered platform that revolutionizes the way modern teams handle invoices. Seamless. Effortless. Powerful.</p>
+  <button class="btn btn1">Get Started Free</button><button class="btn btn2">Book a Demo</button>
+  <div class="stats"><div>10,000+<span>Happy Users</span></div><div>99.9%<span>Uptime</span></div><div>#1<span>Invoicing App</span></div></div>
+</section>
+<section class="features">
+  <div class="card"><div class="emoji">⚡</div><h3>Lightning Fast</h3><p>Unlock the power of instant invoicing with our cutting-edge technology that elevates your business to the next level.</p></div>
+  <div class="card"><div class="emoji">🤖</div><h3>AI-Powered</h3><p>Leverage advanced artificial intelligence to seamlessly streamline your entire financial workflow effortlessly.</p></div>
+  <div class="card"><div class="emoji">🔒</div><h3>Secure</h3><p>Bank-grade security that keeps your data safe. No compromises. Just peace of mind.</p></div>
+</section>
+<section class="dash">
+  <h2>Your Dashboard ✨</h2>
+  <table>
+    <tr><th>Client</th><th>Amount</th><th>Due</th><th>Status</th><th></th></tr>
+    <tr><td>Lorem Ipsum Ltd</td><td>$1200</td><td>2026-10-02</td><td><span class="pill paid">Paid</span></td><td><span class="del" onclick="alert('Are you sure?')">🗑</span></td></tr>
+    <tr><td>Acme Corporation International Holdings</td><td>$850.5</td><td>10/09/26</td><td><span class="pill due">Overdue</span></td><td><span class="del" onclick="alert('Are you sure?')">🗑</span></td></tr>
+    <tr><td>Test Client</td><td>$3,400.00</td><td>Oct 21</td><td><span class="pill draft">Draft</span></td><td><span class="del" onclick="alert('Are you sure?')">🗑</span></td></tr>
+  </table>
+</section>
+<section class="testi">"Billfold changed my life. Best app ever!!!" — John D., CEO</section>
+<footer>© 2026 Billfold. All rights reserved.</footer>
+</body>
+</html>
