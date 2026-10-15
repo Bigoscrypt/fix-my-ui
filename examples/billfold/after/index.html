@@ -56,12 +56,24 @@
     .row .chip{grid-column:2;justify-self:end}
     .row .icon{display:none}
   }
+  .sheet{position:fixed;inset:0;background:rgba(11,18,32,.45);display:none;z-index:20}
+  .sheet.open{display:block}
+  .sheet nav{position:absolute;left:0;right:0;top:0;background:var(--surface);padding:var(--space-4);display:grid;gap:var(--space-1);border-bottom:1px solid var(--border)}
+  .sheet a,.sheet button{display:flex;align-items:center;min-height:48px;padding:0 var(--space-3);border-radius:var(--radius-md);color:var(--fg);text-decoration:none;font:500 var(--text-base) var(--font-body);background:none;border:0;text-align:left}
+  .acts{position:relative}
+  .pop{position:absolute;right:0;top:48px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-2);padding:var(--space-2);display:none;z-index:4;min-width:200px}
+  .pop.open{display:block}
+  .pop button{display:flex;width:100%;min-height:44px;align-items:center;padding:0 var(--space-3);background:none;border:0;border-radius:var(--radius-sm);font:500 var(--text-sm) var(--font-body);color:var(--fg);cursor:pointer}
+  .pop .danger{color:var(--danger)}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:12px 16px;border-radius:var(--radius-md);display:none;gap:16px;align-items:center;font-size:var(--text-sm);z-index:30}
+  .toast.show{display:flex}.toast button{background:none;border:0;color:inherit;font:600 var(--text-sm) var(--font-body);text-decoration:underline;min-height:44px;cursor:pointer}
 </style>
 </head>
 <body>
 <header><div class="wrap"><a class="logo" href="#"><i></i>Billfold</a>
   <nav class="links" aria-label="Main"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#login">Log in</a><a class="btn btn-primary" href="#start" style="min-height:44px">Start free</a></nav>
-  <button class="menu" aria-label="Open menu">Menu</button></div></header>
+  <button class="menu" aria-label="Open menu" aria-expanded="false" aria-controls="sheet">Menu</button></div></header>
+<div class="sheet" id="sheet"><nav aria-label="Mobile"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#login">Log in</a><a href="#start" style="background:var(--primary);color:var(--primary-fg);justify-content:center">Start free</a><button data-close>Close</button></nav></div>
 <main class="wrap">
   <section class="hero">
     <h1>Send an invoice in a minute. Get paid on time.</h1>
@@ -78,9 +90,9 @@
     <div class="panel-head"><h2 id="inv">Invoices</h2><a class="btn btn-primary" href="#new" style="min-height:44px">New invoice</a></div>
     <div class="rows" role="table">
       <div class="row h" role="row"><span>Client</span><span>Due</span><span class="amt">Amount</span><span>Status</span><span></span></div>
-      <div class="row" role="row"><span class="name">Northwind Studio</span><span class="due">Due 2 Oct 2026</span><span class="amt">$1,200.00</span><span class="chip paid">Paid</span><button class="icon" aria-label="More actions for Northwind Studio">⋯</button></div>
-      <div class="row" role="row"><span class="name">Acme Corporation International Holdings</span><span class="due">Due 9 Oct 2026</span><span class="amt">$850.50</span><span class="chip over">Overdue</span><button class="icon" aria-label="More actions for Acme Corporation">⋯</button></div>
-      <div class="row" role="row"><span class="name">Harbour Coffee Co.</span><span class="due">Due 21 Oct 2026</span><span class="amt">$3,400.00</span><span class="chip draft">Draft</span><button class="icon" aria-label="More actions for Harbour Coffee">⋯</button></div>
+      <div class="row" role="row"><span class="name">Northwind Studio</span><span class="due">Due 2 Oct 2026</span><span class="amt">$1,200.00</span><span class="chip paid">Paid</span><span class="acts"><button class="icon" aria-haspopup="menu" aria-label="More actions for Northwind Studio">⋯</button><span class="pop" role="menu"><button role="menuitem">Send reminder</button><button role="menuitem">Download PDF</button><button role="menuitem" class="danger" data-del>Delete invoice</button></span></span></div>
+      <div class="row" role="row"><span class="name">Acme Corporation International Holdings</span><span class="due">Due 9 Oct 2026</span><span class="amt">$850.50</span><span class="chip over">Overdue</span><span class="acts"><button class="icon" aria-haspopup="menu" aria-label="More actions for Acme Corporation">⋯</button><span class="pop" role="menu"><button role="menuitem">Send reminder</button><button role="menuitem">Download PDF</button><button role="menuitem" class="danger" data-del>Delete invoice</button></span></span></div>
+      <div class="row" role="row"><span class="name">Harbour Coffee Co.</span><span class="due">Due 21 Oct 2026</span><span class="amt">$3,400.00</span><span class="chip draft">Draft</span><span class="acts"><button class="icon" aria-haspopup="menu" aria-label="More actions for Harbour Coffee">⋯</button><span class="pop" role="menu"><button role="menuitem">Send reminder</button><button role="menuitem">Download PDF</button><button role="menuitem" class="danger" data-del>Delete invoice</button></span></span></div>
     </div>
   </section>
   <section class="panel">
@@ -88,5 +100,17 @@
   </section>
 </main>
 <footer><div class="wrap">© 2026 Billfold · <a href="#privacy" style="color:inherit">Privacy</a> · <a href="#terms" style="color:inherit">Terms</a></div></footer>
+<div class="toast" role="status" aria-live="polite" id="toast"><span>Invoice deleted.</span><button id="undo">Undo</button></div>
+<script>
+const sheet=document.getElementById('sheet'),menu=document.querySelector('.menu');
+menu.onclick=()=>{sheet.classList.add('open');menu.setAttribute('aria-expanded','true')};
+sheet.onclick=e=>{if(e.target===sheet||e.target.matches('[data-close],a')){sheet.classList.remove('open');menu.setAttribute('aria-expanded','false')}};
+document.querySelectorAll('.acts').forEach(a=>{const b=a.querySelector('.icon'),p=a.querySelector('.pop');b.onclick=e=>{e.stopPropagation();document.querySelectorAll('.pop.open').forEach(x=>x!==p&&x.classList.remove('open'));p.classList.toggle('open')}});
+document.addEventListener('click',()=>document.querySelectorAll('.pop.open').forEach(p=>p.classList.remove('open')));
+// delete without a browser dialog: remove the row, offer undo for a few seconds
+let last=null,timer=null;const toast=document.getElementById('toast');
+document.querySelectorAll('[data-del]').forEach(d=>d.onclick=()=>{const row=d.closest('.row');last={row,next:row.nextSibling};row.remove();toast.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>toast.classList.remove('show'),5000)});
+document.getElementById('undo').onclick=()=>{if(last){last.row.parentNode||document.querySelector('.rows').insertBefore(last.row,last.next);toast.classList.remove('show');last=null}};
+</script>
 </body>
 </html>
